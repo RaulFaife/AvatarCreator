@@ -7,6 +7,8 @@ public class SkinToneChange : MonoBehaviour
     public Material[] skinTones;
     int pos = 0;
 
+
+    //SkinColor is changed on mats[0]
     public void onRightClick()
     {
         //Cycle
@@ -22,7 +24,9 @@ public class SkinToneChange : MonoBehaviour
         
         foreach (Transform child in this.transform)
         {
-            child.GetComponent<Renderer>().material = skinTones[pos];
+            var mats = child.GetComponent<Renderer>().materials;
+            mats[0] = skinTones[pos];
+            child.GetComponent<Renderer>().materials = mats;
         }
 
         
@@ -42,7 +46,9 @@ public class SkinToneChange : MonoBehaviour
 
         foreach (Transform child in this.transform)
         {
-            child.GetComponent<Renderer>().material = skinTones[pos];
+            var mats = child.GetComponent<Renderer>().materials;
+            mats[0] = skinTones[pos];
+            child.GetComponent<Renderer>().materials = mats;
         }
 
     }
